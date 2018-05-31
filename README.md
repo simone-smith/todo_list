@@ -1,1 +1,1 @@
-# creating a to-do list to practice using Sinatra and Capybara
+# creating a to-do list to practise using Sinatra and Capybara

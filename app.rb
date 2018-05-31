@@ -1,8 +1,20 @@
 require 'sinatra/base'
 
 class ToDo < Sinatra::Base
+  enable :sessions
+
   get '/' do
-    'Testing infrastructure working!'
+    erb :index
+  end
+
+  post '/items' do
+    session[:item] = params[:item]
+    redirect '/items'
+  end
+
+  get '/items' do
+    @item = session[:item]
+    erb :items
   end
 
   # start the server if ruby file executed directly
