@@ -18,7 +18,6 @@ class ToDo < Sinatra::Base
 
   get '/items' do
     @item = $item
-    # @item = session[:item]
     erb :items
   end
 
