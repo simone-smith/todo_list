@@ -1,1 +1,9 @@
-<%= @item %> saved to the list!
+<%= @item.last %> saved to the list!
+<p>Full todo list:</p>
+<ul>
+  <% $list.todo_list.each do |item| %>
+  <li><%= item %></li>
+  <% end %>
+</ul>
+
+<a href='/'>Add another item</a>

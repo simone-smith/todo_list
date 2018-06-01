@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/list'
 
 class ToDo < Sinatra::Base
   enable :sessions
@@ -8,12 +9,16 @@ class ToDo < Sinatra::Base
   end
 
   post '/items' do
-    session[:item] = params[:item]
+    if $list == nil
+      $list = List.new
+    end
+    $item = $list.add(params[:item])
     redirect '/items'
   end
 
   get '/items' do
-    @item = session[:item]
+    @item = $item
+    # @item = session[:item]
     erb :items
   end
 
